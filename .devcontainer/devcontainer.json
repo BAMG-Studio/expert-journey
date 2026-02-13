@@ -5,8 +5,7 @@
     "ghcr.io/devcontainers/features/aws-cli:1": {},
     "ghcr.io/devcontainers/features/terraform:1": {
       "version": "1.7.0"
-    },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    }
   },
   "customizations": {
     "vscode": {
@@ -31,7 +30,7 @@
       }
     }
   },
-  "postCreateCommand": "pip install boto3 checkov ansible pytest moto localstack awscli-local",
+  "postCreateCommand": "pip install boto3 checkov ansible pytest",
   "forwardPorts": [],
   "hostRequirements": {
     "cpus": 2,
