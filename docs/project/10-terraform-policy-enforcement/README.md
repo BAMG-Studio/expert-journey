@@ -1,25 +1,25 @@
-# Project 12: AI Threat Modeling Workbench
+# Project 10: Terraform Policy Enforcement
 
 ## Overview
 
-Threat modeling framework for AI systems using STRIDE, LINDDUN, and automated diagram generation with infrastructure-as-code templates.
+Pre-deployment policy validation for Terraform using Checkov, tfsec, OPA, and Sentinel integrated into CI/CD pipelines.
 
 ---
 
 ## Problem Statement
 
 ### Business Context
-Modern cloud environments require ai threat modeling workbench to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
+Modern cloud environments require terraform policy enforcement to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
 
 ### Current State
-- Manual ai threat modeling workbench processes
+- Manual terraform policy enforcement processes
 - Inconsistent implementation across teams
 - No centralized visibility or reporting
 - High operational overhead
 - Compliance gaps and audit findings
 
 ### Desired State
-- Automated ai threat modeling workbench pipeline
+- Automated terraform policy enforcement pipeline
 - Real-time visibility and reporting
 - Consistent policy enforcement
 - NIST 800-53 compliance
@@ -40,29 +40,29 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 
 | Technology | Role | Skill Level |
 |-----------|------|-------------|
-| STRIDE | Core technology | Advanced |
-| LINDDUN | Core technology | Advanced |
 | Terraform | Core technology | Advanced |
-| Python | Core technology | Advanced |
-| PlantUML | Core technology | Advanced |
+| Checkov | Core technology | Advanced |
+| tfsec | Core technology | Advanced |
+| OPA | Core technology | Advanced |
+| Sentinel | Core technology | Advanced |
 
 ---
 
 ## NIST 800-53 Control Mappings
 
-- **RA-3**: Implementation via AI Threat Modeling Workbench
-- **RA-5**: Implementation via AI Threat Modeling Workbench
-- **SA-11**: Implementation via AI Threat Modeling Workbench
-- **PL-8**: Implementation via AI Threat Modeling Workbench
+- **CM-2**: Implementation via Terraform Policy Enforcement
+- **CM-3**: Implementation via Terraform Policy Enforcement
+- **CM-6**: Implementation via Terraform Policy Enforcement
+- **SA-10**: Implementation via Terraform Policy Enforcement
 
 ---
 
 ## Key Features
 
-- AI-specific threat modeling
-- Automated diagram generation
-- Threat library management
-- Risk scoring framework
+- Policy-as-code enforcement
+- Pre-commit hooks
+- CI/CD pipeline integration
+- Custom policy authoring
 
 ---
 
@@ -79,7 +79,7 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 ## Getting Started
 
 ```bash
-git checkout ai-threat-modeling-workbench
+git checkout terraform-policy-enforcement
 cd terraform/
 terraform init && terraform apply
 ```

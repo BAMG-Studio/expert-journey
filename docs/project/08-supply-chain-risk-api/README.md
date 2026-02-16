@@ -1,25 +1,25 @@
-# Project 12: AI Threat Modeling Workbench
+# Project 08: Supply Chain Risk Scoring API
 
 ## Overview
 
-Threat modeling framework for AI systems using STRIDE, LINDDUN, and automated diagram generation with infrastructure-as-code templates.
+RESTful API for supply chain risk assessment using third-party risk intelligence, dependency scanning, and CVE aggregation.
 
 ---
 
 ## Problem Statement
 
 ### Business Context
-Modern cloud environments require ai threat modeling workbench to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
+Modern cloud environments require supply chain risk scoring api to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
 
 ### Current State
-- Manual ai threat modeling workbench processes
+- Manual supply chain risk scoring api processes
 - Inconsistent implementation across teams
 - No centralized visibility or reporting
 - High operational overhead
 - Compliance gaps and audit findings
 
 ### Desired State
-- Automated ai threat modeling workbench pipeline
+- Automated supply chain risk scoring api pipeline
 - Real-time visibility and reporting
 - Consistent policy enforcement
 - NIST 800-53 compliance
@@ -40,29 +40,29 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 
 | Technology | Role | Skill Level |
 |-----------|------|-------------|
-| STRIDE | Core technology | Advanced |
-| LINDDUN | Core technology | Advanced |
-| Terraform | Core technology | Advanced |
-| Python | Core technology | Advanced |
-| PlantUML | Core technology | Advanced |
+| API Gateway | Core technology | Advanced |
+| Lambda | Core technology | Advanced |
+| DynamoDB | Core technology | Advanced |
+| WAF | Core technology | Advanced |
+| EventBridge | Core technology | Advanced |
 
 ---
 
 ## NIST 800-53 Control Mappings
 
-- **RA-3**: Implementation via AI Threat Modeling Workbench
-- **RA-5**: Implementation via AI Threat Modeling Workbench
-- **SA-11**: Implementation via AI Threat Modeling Workbench
-- **PL-8**: Implementation via AI Threat Modeling Workbench
+- **SR-1**: Implementation via Supply Chain Risk Scoring API
+- **SR-2**: Implementation via Supply Chain Risk Scoring API
+- **SR-3**: Implementation via Supply Chain Risk Scoring API
+- **SA-12**: Implementation via Supply Chain Risk Scoring API
 
 ---
 
 ## Key Features
 
-- AI-specific threat modeling
-- Automated diagram generation
-- Threat library management
-- Risk scoring framework
+- Vendor risk scoring
+- Dependency vulnerability tracking
+- Real-time risk alerts
+- Third-party integration
 
 ---
 
@@ -79,7 +79,7 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 ## Getting Started
 
 ```bash
-git checkout ai-threat-modeling-workbench
+git checkout supply-chain-risk-api
 cd terraform/
 terraform init && terraform apply
 ```

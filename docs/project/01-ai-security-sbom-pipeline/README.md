@@ -1,25 +1,25 @@
-# Project 12: AI Threat Modeling Workbench
+# Project 01: AI Security SBOM Pipeline
 
 ## Overview
 
-Threat modeling framework for AI systems using STRIDE, LINDDUN, and automated diagram generation with infrastructure-as-code templates.
+Automated Software Bill of Materials (SBOM) generation and vulnerability scanning for AI/ML containers using Syft, Grype, and cosign.
 
 ---
 
 ## Problem Statement
 
 ### Business Context
-Modern cloud environments require ai threat modeling workbench to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
+Modern cloud environments require ai security sbom pipeline to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
 
 ### Current State
-- Manual ai threat modeling workbench processes
+- Manual ai security sbom pipeline processes
 - Inconsistent implementation across teams
 - No centralized visibility or reporting
 - High operational overhead
 - Compliance gaps and audit findings
 
 ### Desired State
-- Automated ai threat modeling workbench pipeline
+- Automated ai security sbom pipeline pipeline
 - Real-time visibility and reporting
 - Consistent policy enforcement
 - NIST 800-53 compliance
@@ -40,29 +40,29 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 
 | Technology | Role | Skill Level |
 |-----------|------|-------------|
-| STRIDE | Core technology | Advanced |
-| LINDDUN | Core technology | Advanced |
-| Terraform | Core technology | Advanced |
-| Python | Core technology | Advanced |
-| PlantUML | Core technology | Advanced |
+| Syft | Core technology | Advanced |
+| Grype | Core technology | Advanced |
+| cosign | Core technology | Advanced |
+| SageMaker | Core technology | Advanced |
+| GitHub Actions | Core technology | Advanced |
 
 ---
 
 ## NIST 800-53 Control Mappings
 
-- **RA-3**: Implementation via AI Threat Modeling Workbench
-- **RA-5**: Implementation via AI Threat Modeling Workbench
-- **SA-11**: Implementation via AI Threat Modeling Workbench
-- **PL-8**: Implementation via AI Threat Modeling Workbench
+- **SR-4**: Implementation via AI Security SBOM Pipeline
+- **SR-5**: Implementation via AI Security SBOM Pipeline
+- **SA-15**: Implementation via AI Security SBOM Pipeline
+- **RA-5**: Implementation via AI Security SBOM Pipeline
 
 ---
 
 ## Key Features
 
-- AI-specific threat modeling
-- Automated diagram generation
-- Threat library management
-- Risk scoring framework
+- Automated SBOM generation
+- Container vulnerability scanning
+- Artifact signing and verification
+- CI/CD integration
 
 ---
 
@@ -79,7 +79,7 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 ## Getting Started
 
 ```bash
-git checkout ai-threat-modeling-workbench
+git checkout ai-security-sbom-pipeline
 cd terraform/
 terraform init && terraform apply
 ```

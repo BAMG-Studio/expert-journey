@@ -1,25 +1,25 @@
-# Project 12: AI Threat Modeling Workbench
+# Project 04: Multi-Account AWS Governance
 
 ## Overview
 
-Threat modeling framework for AI systems using STRIDE, LINDDUN, and automated diagram generation with infrastructure-as-code templates.
+AWS Organizations governance framework with SCPs, Control Tower, and cross-account IAM for centralized security management.
 
 ---
 
 ## Problem Statement
 
 ### Business Context
-Modern cloud environments require ai threat modeling workbench to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
+Modern cloud environments require multi-account aws governance to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
 
 ### Current State
-- Manual ai threat modeling workbench processes
+- Manual multi account aws governance processes
 - Inconsistent implementation across teams
 - No centralized visibility or reporting
 - High operational overhead
 - Compliance gaps and audit findings
 
 ### Desired State
-- Automated ai threat modeling workbench pipeline
+- Automated multi-account aws governance pipeline
 - Real-time visibility and reporting
 - Consistent policy enforcement
 - NIST 800-53 compliance
@@ -40,29 +40,29 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 
 | Technology | Role | Skill Level |
 |-----------|------|-------------|
-| STRIDE | Core technology | Advanced |
-| LINDDUN | Core technology | Advanced |
-| Terraform | Core technology | Advanced |
-| Python | Core technology | Advanced |
-| PlantUML | Core technology | Advanced |
+| AWS Organizations | Core technology | Advanced |
+| SCPs | Core technology | Advanced |
+| Control Tower | Core technology | Advanced |
+| Guardrails | Core technology | Advanced |
+| CloudFormation StackSets | Core technology | Advanced |
 
 ---
 
 ## NIST 800-53 Control Mappings
 
-- **RA-3**: Implementation via AI Threat Modeling Workbench
-- **RA-5**: Implementation via AI Threat Modeling Workbench
-- **SA-11**: Implementation via AI Threat Modeling Workbench
-- **PL-8**: Implementation via AI Threat Modeling Workbench
+- **AC-2**: Implementation via Multi-Account AWS Governance
+- **AC-3**: Implementation via Multi-Account AWS Governance
+- **AC-6**: Implementation via Multi-Account AWS Governance
+- **CM-7**: Implementation via Multi-Account AWS Governance
 
 ---
 
 ## Key Features
 
-- AI-specific threat modeling
-- Automated diagram generation
-- Threat library management
-- Risk scoring framework
+- Service Control Policies
+- Automated account provisioning
+- Centralized logging
+- Cross-account IAM roles
 
 ---
 
@@ -79,7 +79,7 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 ## Getting Started
 
 ```bash
-git checkout ai-threat-modeling-workbench
+git checkout multi-account-aws-governance
 cd terraform/
 terraform init && terraform apply
 ```

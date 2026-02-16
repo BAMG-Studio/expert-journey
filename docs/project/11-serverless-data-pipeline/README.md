@@ -1,25 +1,25 @@
-# Project 12: AI Threat Modeling Workbench
+# Project 11: Serverless Data Pipeline Security
 
 ## Overview
 
-Threat modeling framework for AI systems using STRIDE, LINDDUN, and automated diagram generation with infrastructure-as-code templates.
+Secure serverless data pipeline with encryption, access controls, and data classification using Kinesis, Lambda, and Macie.
 
 ---
 
 ## Problem Statement
 
 ### Business Context
-Modern cloud environments require ai threat modeling workbench to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
+Modern cloud environments require serverless data pipeline security to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
 
 ### Current State
-- Manual ai threat modeling workbench processes
+- Manual serverless data pipeline security processes
 - Inconsistent implementation across teams
 - No centralized visibility or reporting
 - High operational overhead
 - Compliance gaps and audit findings
 
 ### Desired State
-- Automated ai threat modeling workbench pipeline
+- Automated serverless data pipeline security pipeline
 - Real-time visibility and reporting
 - Consistent policy enforcement
 - NIST 800-53 compliance
@@ -40,29 +40,29 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 
 | Technology | Role | Skill Level |
 |-----------|------|-------------|
-| STRIDE | Core technology | Advanced |
-| LINDDUN | Core technology | Advanced |
-| Terraform | Core technology | Advanced |
-| Python | Core technology | Advanced |
-| PlantUML | Core technology | Advanced |
+| Kinesis | Core technology | Advanced |
+| Lambda | Core technology | Advanced |
+| SQS | Core technology | Advanced |
+| KMS | Core technology | Advanced |
+| Macie | Core technology | Advanced |
 
 ---
 
 ## NIST 800-53 Control Mappings
 
-- **RA-3**: Implementation via AI Threat Modeling Workbench
-- **RA-5**: Implementation via AI Threat Modeling Workbench
-- **SA-11**: Implementation via AI Threat Modeling Workbench
-- **PL-8**: Implementation via AI Threat Modeling Workbench
+- **SC-8**: Implementation via Serverless Data Pipeline Security
+- **SC-13**: Implementation via Serverless Data Pipeline Security
+- **AC-3**: Implementation via Serverless Data Pipeline Security
+- **SI-7**: Implementation via Serverless Data Pipeline Security
 
 ---
 
 ## Key Features
 
-- AI-specific threat modeling
-- Automated diagram generation
-- Threat library management
-- Risk scoring framework
+- End-to-end encryption
+- Data classification with Macie
+- Dead-letter queue handling
+- IAM least privilege
 
 ---
 
@@ -79,7 +79,7 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 ## Getting Started
 
 ```bash
-git checkout ai-threat-modeling-workbench
+git checkout serverless-data-pipeline-security
 cd terraform/
 terraform init && terraform apply
 ```

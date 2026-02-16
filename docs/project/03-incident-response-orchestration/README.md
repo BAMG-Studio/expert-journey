@@ -1,25 +1,25 @@
-# Project 12: AI Threat Modeling Workbench
+# Project 03: Incident Response Orchestration
 
 ## Overview
 
-Threat modeling framework for AI systems using STRIDE, LINDDUN, and automated diagram generation with infrastructure-as-code templates.
+Automated incident response workflows using Step Functions, EventBridge, and Lambda for playbook execution and MTTR reduction.
 
 ---
 
 ## Problem Statement
 
 ### Business Context
-Modern cloud environments require ai threat modeling workbench to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
+Modern cloud environments require incident response orchestration to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
 
 ### Current State
-- Manual ai threat modeling workbench processes
+- Manual incident response orchestration processes
 - Inconsistent implementation across teams
 - No centralized visibility or reporting
 - High operational overhead
 - Compliance gaps and audit findings
 
 ### Desired State
-- Automated ai threat modeling workbench pipeline
+- Automated incident response orchestration pipeline
 - Real-time visibility and reporting
 - Consistent policy enforcement
 - NIST 800-53 compliance
@@ -40,29 +40,29 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 
 | Technology | Role | Skill Level |
 |-----------|------|-------------|
-| STRIDE | Core technology | Advanced |
-| LINDDUN | Core technology | Advanced |
-| Terraform | Core technology | Advanced |
-| Python | Core technology | Advanced |
-| PlantUML | Core technology | Advanced |
+| Step Functions | Core technology | Advanced |
+| EventBridge | Core technology | Advanced |
+| Lambda | Core technology | Advanced |
+| SNS | Core technology | Advanced |
+| Systems Manager | Core technology | Advanced |
 
 ---
 
 ## NIST 800-53 Control Mappings
 
-- **RA-3**: Implementation via AI Threat Modeling Workbench
-- **RA-5**: Implementation via AI Threat Modeling Workbench
-- **SA-11**: Implementation via AI Threat Modeling Workbench
-- **PL-8**: Implementation via AI Threat Modeling Workbench
+- **IR-4**: Implementation via Incident Response Orchestration
+- **IR-5**: Implementation via Incident Response Orchestration
+- **IR-6**: Implementation via Incident Response Orchestration
+- **IR-8**: Implementation via Incident Response Orchestration
 
 ---
 
 ## Key Features
 
-- AI-specific threat modeling
-- Automated diagram generation
-- Threat library management
-- Risk scoring framework
+- Automated playbooks
+- Multi-channel notifications
+- Forensics automation
+- MTTR metrics tracking
 
 ---
 
@@ -79,7 +79,7 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 ## Getting Started
 
 ```bash
-git checkout ai-threat-modeling-workbench
+git checkout incident-response-orchestration
 cd terraform/
 terraform init && terraform apply
 ```

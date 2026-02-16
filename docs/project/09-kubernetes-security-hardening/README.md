@@ -1,25 +1,25 @@
-# Project 12: AI Threat Modeling Workbench
+# Project 09: Kubernetes Security (EKS)
 
 ## Overview
 
-Threat modeling framework for AI systems using STRIDE, LINDDUN, and automated diagram generation with infrastructure-as-code templates.
+EKS cluster hardening with Kyverno policy enforcement, Falco runtime security, and pod security standards.
 
 ---
 
 ## Problem Statement
 
 ### Business Context
-Modern cloud environments require ai threat modeling workbench to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
+Modern cloud environments require kubernetes security (eks) to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
 
 ### Current State
-- Manual ai threat modeling workbench processes
+- Manual kubernetes security (eks) processes
 - Inconsistent implementation across teams
 - No centralized visibility or reporting
 - High operational overhead
 - Compliance gaps and audit findings
 
 ### Desired State
-- Automated ai threat modeling workbench pipeline
+- Automated kubernetes security (eks) pipeline
 - Real-time visibility and reporting
 - Consistent policy enforcement
 - NIST 800-53 compliance
@@ -40,29 +40,29 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 
 | Technology | Role | Skill Level |
 |-----------|------|-------------|
-| STRIDE | Core technology | Advanced |
-| LINDDUN | Core technology | Advanced |
-| Terraform | Core technology | Advanced |
-| Python | Core technology | Advanced |
-| PlantUML | Core technology | Advanced |
+| EKS | Core technology | Advanced |
+| Kyverno | Core technology | Advanced |
+| Falco | Core technology | Advanced |
+| ECR | Core technology | Advanced |
+| Pod Security Standards | Core technology | Advanced |
 
 ---
 
 ## NIST 800-53 Control Mappings
 
-- **RA-3**: Implementation via AI Threat Modeling Workbench
-- **RA-5**: Implementation via AI Threat Modeling Workbench
-- **SA-11**: Implementation via AI Threat Modeling Workbench
-- **PL-8**: Implementation via AI Threat Modeling Workbench
+- **SC-7**: Implementation via Kubernetes Security (EKS)
+- **SI-3**: Implementation via Kubernetes Security (EKS)
+- **SI-4**: Implementation via Kubernetes Security (EKS)
+- **AC-6**: Implementation via Kubernetes Security (EKS)
 
 ---
 
 ## Key Features
 
-- AI-specific threat modeling
-- Automated diagram generation
-- Threat library management
-- Risk scoring framework
+- Policy enforcement with Kyverno
+- Runtime threat detection
+- Network policy automation
+- Container image scanning
 
 ---
 
@@ -79,7 +79,7 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 ## Getting Started
 
 ```bash
-git checkout ai-threat-modeling-workbench
+git checkout kubernetes-security-eks
 cd terraform/
 terraform init && terraform apply
 ```

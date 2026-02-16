@@ -1,25 +1,25 @@
-# Project 12: AI Threat Modeling Workbench
+# Project 06: MLOps Model Registry Security
 
 ## Overview
 
-Threat modeling framework for AI systems using STRIDE, LINDDUN, and automated diagram generation with infrastructure-as-code templates.
+Secure ML model registry with versioning, access control, and artifact signing using SageMaker, MLflow, and cosign.
 
 ---
 
 ## Problem Statement
 
 ### Business Context
-Modern cloud environments require ai threat modeling workbench to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
+Modern cloud environments require mlops model registry security to maintain security posture and compliance. Manual processes are error-prone, slow, and don't scale.
 
 ### Current State
-- Manual ai threat modeling workbench processes
+- Manual mlops model registry security processes
 - Inconsistent implementation across teams
 - No centralized visibility or reporting
 - High operational overhead
 - Compliance gaps and audit findings
 
 ### Desired State
-- Automated ai threat modeling workbench pipeline
+- Automated mlops model registry security pipeline
 - Real-time visibility and reporting
 - Consistent policy enforcement
 - NIST 800-53 compliance
@@ -40,29 +40,29 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 
 | Technology | Role | Skill Level |
 |-----------|------|-------------|
-| STRIDE | Core technology | Advanced |
-| LINDDUN | Core technology | Advanced |
-| Terraform | Core technology | Advanced |
-| Python | Core technology | Advanced |
-| PlantUML | Core technology | Advanced |
+| SageMaker | Core technology | Advanced |
+| MLflow | Core technology | Advanced |
+| cosign | Core technology | Advanced |
+| KMS | Core technology | Advanced |
+| IAM | Core technology | Advanced |
 
 ---
 
 ## NIST 800-53 Control Mappings
 
-- **RA-3**: Implementation via AI Threat Modeling Workbench
-- **RA-5**: Implementation via AI Threat Modeling Workbench
-- **SA-11**: Implementation via AI Threat Modeling Workbench
-- **PL-8**: Implementation via AI Threat Modeling Workbench
+- **SA-10**: Implementation via MLOps Model Registry Security
+- **SA-15**: Implementation via MLOps Model Registry Security
+- **SI-7**: Implementation via MLOps Model Registry Security
+- **AC-3**: Implementation via MLOps Model Registry Security
 
 ---
 
 ## Key Features
 
-- AI-specific threat modeling
-- Automated diagram generation
-- Threat library management
-- Risk scoring framework
+- Model versioning and lineage
+- Cryptographic signing
+- Fine-grained access control
+- Audit trail for model deployments
 
 ---
 
@@ -79,7 +79,7 @@ Input Sources → Processing Layer → Storage/Output → Monitoring
 ## Getting Started
 
 ```bash
-git checkout ai-threat-modeling-workbench
+git checkout mlops-model-registry-security
 cd terraform/
 terraform init && terraform apply
 ```
