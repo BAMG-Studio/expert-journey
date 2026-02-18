@@ -1,0 +1,46 @@
+{
+  "_comment": "OpenSearch Index Template for SIEM Logs",
+  "_explanation": [
+    "An index template defines the STRUCTURE of your log data.",
+    "Think of it like a database schema - it tells OpenSearch",
+    "what fields to expect and how to index them.",
+    "MAPPINGS: Define field types (keyword, date, ip, etc.)",
+    "SETTINGS: Control replicas, shards, and refresh interval"
+  ],
+  "index_patterns": ["siem-logs-*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 3,
+      "number_of_replicas": 1,
+      "refresh_interval": "5s",
+      "index.codec": "best_compression"
+    },
+    "mappings": {
+      "properties": {
+        "timestamp": {"type": "date", "format": "strict_date_optional_time||epoch_millis"},
+        "source": {"type": "keyword"},
+        "event_type": {"type": "keyword"},
+        "severity": {"type": "keyword"},
+        "account_id": {"type": "keyword"},
+        "region": {"type": "keyword"},
+        "source_ip": {"type": "ip"},
+        "destination_ip": {"type": "ip"},
+        "user_identity": {"type": "keyword"},
+        "resource_arn": {"type": "keyword"},
+        "action": {"type": "keyword"},
+        "outcome": {"type": "keyword"},
+        "description": {"type": "text"},
+        "raw_data": {"type": "object", "enabled": false},
+        "enrichment": {
+          "type": "object",
+          "properties": {
+            "geo_location": {"type": "geo_point"},
+            "threat_intel": {"type": "object"},
+            "asset_info": {"type": "object"}
+          }
+        }
+      }
+    }
+  },
+  "priority": 100
+}

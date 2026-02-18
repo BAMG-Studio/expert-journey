@@ -1,0 +1,46 @@
+# =============================================================================
+# PRODUCTION ENVIRONMENT CONFIGURATION TEMPLATE
+# =============================================================================
+# Copy this file to prod.tfvars and fill in the values.
+# DO NOT commit prod.tfvars to version control!
+# =============================================================================
+
+project_name = "enterprise-siem"
+environment  = "prod"
+aws_region   = "us-east-1"
+owner_email  = "secops@yourcompany.com"
+
+# Enable all security features in production
+enable_guardduty     = true
+enable_cloudtrail    = true
+enable_securityhub   = true
+enable_macie         = false  # Enable if you need S3 data classification
+enable_vpc_flow_logs = true
+
+use_localstack = false
+
+# OpenSearch - Production sizing
+opensearch_instance_type    = "r6g.large.search"
+opensearch_instance_count   = 2
+opensearch_ebs_size         = 500
+opensearch_version          = "OpenSearch_2.11"
+opensearch_master_user      = "siemadmin"
+# Set via: TF_VAR_opensearch_master_password
+
+# VPC Configuration (REQUIRED for production)
+vpc_id             = "vpc-xxxxxxxxx"
+private_subnet_ids = ["subnet-xxx1", "subnet-xxx2"]
+
+# Kinesis - Balanced for production
+firehose_buffer_size      = 5
+firehose_buffer_interval  = 60
+
+# Storage - Compliance-aligned retention
+log_retention_days = 365  # SOC 2 / PCI DSS compliant
+enable_cross_region_replication = true
+replication_region = "us-west-2"
+
+# KMS Admin Roles
+kms_admin_role_arns = [
+  "arn:aws:iam::123456789012:role/SecurityAdmin"
+]

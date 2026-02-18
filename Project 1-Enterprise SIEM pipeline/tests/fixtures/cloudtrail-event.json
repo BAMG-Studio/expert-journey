@@ -1,0 +1,28 @@
+{
+  "version": "0",
+  "id": "test-event-002",
+  "detail-type": "AWS API Call via CloudTrail",
+  "source": "aws.s3",
+  "account": "123456789012",
+  "time": "2026-02-16T16:00:00Z",
+  "region": "us-east-1",
+  "detail": {
+    "eventVersion": "1.08",
+    "eventTime": "2026-02-16T16:00:00Z",
+    "eventSource": "s3.amazonaws.com",
+    "eventName": "DeleteBucket",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "203.0.113.0",
+    "userAgent": "aws-cli/2.0",
+    "userIdentity": {
+      "type": "IAMUser",
+      "arn": "arn:aws:iam::123456789012:user/admin",
+      "accountId": "123456789012",
+      "userName": "admin"
+    },
+    "requestParameters": {
+      "bucketName": "sensitive-data-bucket"
+    },
+    "responseElements": null
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "_comment": "OpenSearch Alert Monitor - High Severity Events",
+  "_explanation": [
+    "This alert triggers when a HIGH or CRITICAL severity event is detected.",
+    "It sends notifications to the SIEM admin team via SNS.",
+    "WHAT IT DOES: Watches for severity=high|critical in normalized logs.",
+    "WHEN IT FIRES: Within 1 minute of a matching event."
+  ],
+  "name": "High Severity Security Alert",
+  "type": "monitor",
+  "monitor_type": "query_level_monitor",
+  "enabled": true,
+  "schedule": {
+    "period": {
+      "interval": 1,
+      "unit": "MINUTES"
+    }
+  },
+  "inputs": [
+    {
+      "search": {
+        "indices": ["siem-logs-*"],
+        "query": {
+          "bool": {
+            "must": [
+              {
+                "terms": {
+                  "severity.keyword": ["high", "critical"]
+                }
+              },
+              {
+                "range": {
+                  "timestamp": {
+                    "gte": "now-5m"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "triggers": [
+    {
+      "name": "High severity event detected",
+      "severity": "1",
+      "condition": {
+        "script": {
+          "source": "ctx.results[0].hits.total.value > 0",
+          "lang": "painless"
+        }
+      },
+      "actions": [
+        {
+          "name": "Notify SIEM Team",
+          "destination_id": "sns-siem-alerts",
+          "message_template": {
+            "source": "HIGH SEVERITY ALERT: {{ctx.results[0].hits.total.value}} events detected in the last 5 minutes."
+          }
+        }
+      ]
+    }
+  ]
+}

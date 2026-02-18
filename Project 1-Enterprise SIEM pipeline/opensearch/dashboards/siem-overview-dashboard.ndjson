@@ -1,0 +1,6 @@
+{"_comment": "SIEM Overview Dashboard for OpenSearch Dashboards"}
+{"_explanation": "This dashboard provides a single-pane view of all security events"}
+{"type": "dashboard", "id": "siem-overview", "attributes": {"title": "SIEM Security Overview", "description": "Main dashboard showing all security events across sources", "panels": [{"gridData": {"x": 0, "y": 0, "w": 24, "h": 8}, "type": "visualization", "id": "events-by-source"}, {"gridData": {"x": 24, "y": 0, "w": 24, "h": 8}, "type": "visualization", "id": "events-by-severity"}, {"gridData": {"x": 0, "y": 8, "w": 48, "h": 12}, "type": "visualization", "id": "events-timeline"}]}}
+{"type": "visualization", "id": "events-by-source", "attributes": {"title": "Events by Source", "visState": {"type": "pie", "aggs": [{"type": "count"}, {"type": "terms", "params": {"field": "source.keyword"}}]}}}
+{"type": "visualization", "id": "events-by-severity", "attributes": {"title": "Events by Severity", "visState": {"type": "histogram", "aggs": [{"type": "count"}, {"type": "terms", "params": {"field": "severity.keyword"}}]}}}
+{"type": "visualization", "id": "events-timeline", "attributes": {"title": "Security Events Timeline", "visState": {"type": "line", "aggs": [{"type": "count"}, {"type": "date_histogram", "params": {"field": "timestamp", "interval": "auto"}}]}}}

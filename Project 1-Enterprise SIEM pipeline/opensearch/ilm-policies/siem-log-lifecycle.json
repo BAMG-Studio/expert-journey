@@ -1,0 +1,57 @@
+{
+  "_comment": "Index Lifecycle Management Policy for SIEM Logs",
+  "_explanation": [
+    "ILM = Index Lifecycle Management",
+    "This policy controls how log data ages over time:",
+    "  HOT (0-7 days): Fast SSD storage, full replicas",
+    "  WARM (7-30 days): Cheaper storage, read-only",
+    "  COLD (30-90 days): Cheapest storage, compressed",
+    "  DELETE (90+ days): Automatically removed",
+    "WHY? Keeps costs low while retaining recent data for analysis"
+  ],
+  "policy": {
+    "description": "SIEM log retention policy - 90 day lifecycle",
+    "default_state": "hot",
+    "states": [
+      {
+        "name": "hot",
+        "actions": [
+          {
+            "rollover": {
+              "min_index_age": "7d",
+              "min_size": "50gb"
+            }
+          }
+        ],
+        "transitions": [
+          {"state_name": "warm", "conditions": {"min_index_age": "7d"}}
+        ]
+      },
+      {
+        "name": "warm",
+        "actions": [
+          {"read_only": {}},
+          {"force_merge": {"max_num_segments": 1}}
+        ],
+        "transitions": [
+          {"state_name": "cold", "conditions": {"min_index_age": "30d"}}
+        ]
+      },
+      {
+        "name": "cold",
+        "actions": [
+          {"read_only": {}}
+        ],
+        "transitions": [
+          {"state_name": "delete", "conditions": {"min_index_age": "90d"}}
+        ]
+      },
+      {
+        "name": "delete",
+        "actions": [
+          {"delete": {}}
+        ]
+      }
+    ]
+  }
+}

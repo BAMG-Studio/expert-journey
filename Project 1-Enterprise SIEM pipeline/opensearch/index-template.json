@@ -1,0 +1,84 @@
+{
+  "index_patterns": [
+    "security-events-*"
+  ],
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "index.refresh_interval": "5s"
+    },
+    "mappings": {
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "event_id": {
+          "type": "keyword"
+        },
+        "event_source": {
+          "type": "keyword"
+        },
+        "event_type": {
+          "type": "keyword"
+        },
+        "severity": {
+          "type": "keyword"
+        },
+        "severity_score": {
+          "type": "float"
+        },
+        "account_id": {
+          "type": "keyword"
+        },
+        "region": {
+          "type": "keyword"
+        },
+        "source_ip": {
+          "type": "ip"
+        },
+        "user_identity": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "keyword"
+            },
+            "arn": {
+              "type": "keyword"
+            },
+            "user_name": {
+              "type": "keyword"
+            }
+          }
+        },
+        "resource": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "keyword"
+            },
+            "id": {
+              "type": "keyword"
+            },
+            "arn": {
+              "type": "keyword"
+            }
+          }
+        },
+        "action": {
+          "type": "keyword"
+        },
+        "outcome": {
+          "type": "keyword"
+        },
+        "description": {
+          "type": "text"
+        },
+        "raw_event": {
+          "type": "text",
+          "index": false
+        }
+      }
+    }
+  }
+}

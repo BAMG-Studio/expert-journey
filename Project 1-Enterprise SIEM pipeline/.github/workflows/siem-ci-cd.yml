@@ -1,0 +1,99 @@
+# =============================================================
+# SIEM Pipeline CI/CD - GitHub Actions Workflow
+# =============================================================
+# WHAT THIS DOES:
+#   1. Runs on every push and pull request
+#   2. Validates Terraform configuration
+#   3. Runs all Python tests (unit, moto, compliance)
+#   4. Checks code formatting
+#   5. Optionally deploys to AWS (on main branch merge)
+#
+# HOW GITHUB ACTIONS WORK:
+#   - A "workflow" runs automatically when code changes
+#   - It uses a fresh virtual machine each time
+#   - Steps run sequentially within a job
+#   - Jobs can run in parallel
+# =============================================================
+
+name: SIEM Pipeline CI/CD
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'Project 1-Enterprise SIEM pipeline/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Project 1-Enterprise SIEM pipeline/**'
+
+env:
+  TF_VERSION: '1.6.0'
+  PYTHON_VERSION: '3.11'
+  PROJECT_DIR: 'Project 1-Enterprise SIEM pipeline'
+
+jobs:
+  # ---- JOB 1: Validate Terraform ----
+  terraform-validate:
+    name: Terraform Validate
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_DIR }}/terraform
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Init
+        run: terraform init -backend=false
+
+      - name: Terraform Validate
+        run: terraform validate
+
+  # ---- JOB 2: Python Tests ----
+  python-tests:
+    name: Python Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_DIR }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Dependencies
+        run: |
+          pip install pytest moto boto3 coverage
+
+      - name: Run Unit Tests
+        run: python -m pytest tests/unit/ -v
+
+      - name: Run Compliance Tests
+        run: python -m pytest tests/compliance/ -v
+
+      - name: Run Moto Tests
+        run: python -m pytest tests/moto-tests/ -v
+
+  # ---- JOB 3: Security Scan ----
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run tfsec
+        uses: aquasecurity/tfsec-action@v1.0.0
+        with:
+          working_directory: '${{ env.PROJECT_DIR }}/terraform'
+          soft_fail: true
