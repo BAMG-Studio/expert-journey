@@ -1,0 +1,55 @@
+# =============================================================================
+# LOCALSTACK DOCKER COMPOSE - FREE AWS SIMULATION
+# =============================================================================
+# Pidgin Explanation:
+# Omo! Instead of say we go dey spend money for AWS every time we wan test,
+# we go use LocalStack. Na like practice ground - everything work like real
+# AWS but e dey run for your laptop. No billing, no wahala!
+#
+# LocalStack dey simulate AWS services like S3, Lambda, IAM, SQS, etc.
+# So you fit practice Terraform, AWS CLI, boto3 - everything - for free!
+# =============================================================================
+
+version: '3.8'
+
+services:
+  localstack:
+    container_name: top3-localstack
+    image: localstack/localstack:latest
+    ports:
+      - "127.0.0.1:4566:4566"       # LocalStack Gateway (all services)
+      - "127.0.0.1:4510-4559:4510-4559"  # External services port range
+    environment:
+      # Which AWS services we wan use (comma-separated)
+      - SERVICES=s3,lambda,iam,sts,kms,sqs,sns,cloudwatch,logs,events,config,sagemaker,ecr,ecs,eks,secretsmanager,guardduty,securityhub,opensearch,dynamodb,apigateway,cloudformation,stepfunctions
+      # Set the AWS region (same as our project target)
+      - DEFAULT_REGION=us-east-1
+      # Debug mode (set to 1 to see detailed logs)
+      - DEBUG=0
+      # Docker socket for Lambda containers
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      # Persistence (save data between restarts)
+      - PERSISTENCE=1
+      # Data directory inside container
+      - DATA_DIR=/var/lib/localstack/data
+    volumes:
+      # Mount Docker socket so LocalStack can spawn Lambda containers
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      # Persist data between container restarts
+      - "localstack-data:/var/lib/localstack"
+    networks:
+      - top3-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  localstack-data:
+    driver: local
+
+networks:
+  top3-network:
+    driver: bridge
